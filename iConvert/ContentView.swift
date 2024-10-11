@@ -14,18 +14,18 @@ struct ContentView: View {
     @State private var startingOutput = "cup"
     @FocusState private var inputIsFocused: Bool
     
-    let inputUnits = ["cup", "pint", "quart", "gallon", "swimming pool"]
-    let outputUnits = ["cup", "pint", "quart", "gallon", "swimming pool"]
+    let inputUnits = ["cup(s)", "pint(s)", "quart(s)", "gallon(s)", "swimming pool(s)"]
+    let outputUnits = ["cup(s)", "pint(s)", "quart(s)", "gallon(s)", "swimming pool(s)"]
     
     var baseAmount: Double {
         switch startingInput {
-        case "pint":
+        case "pint(s)":
             return input * 2
-        case "quart":
+        case "quart(s)":
             return input * 4
-        case "gallon":
-            return input * 8
-        case "swimming pool":
+        case "gallon(s)":
+            return input * 16
+        case "swimming pool(s)":
             return  input * 10_566_882
         default:
             return input
@@ -34,13 +34,13 @@ struct ContentView: View {
     
     var output: Double {
         switch startingOutput {
-        case "pint":
+        case "pint(s)":
             return baseAmount / 2
-        case "quart":
+        case "quart(s)":
             return baseAmount / 4
-        case "gallon":
-            return baseAmount / 8
-        case "swimming pool":
+        case "gallon(s)":
+            return baseAmount / 16
+        case "swimming pool(s)":
             return baseAmount / 10_566_882
         default:
             return baseAmount
